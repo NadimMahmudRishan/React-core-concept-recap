@@ -1,21 +1,14 @@
-import { useEffect, useState } from "react"
+import './Post.css'
 
-export default function Post(){
-    const [post,setPost]=useState([])
-    useEffect(()=>{
-        fetch('https://jsonplaceholder.typicode.com/posts')
-        .then(res=>res.json())
-        .then(data=>console.log(data))
-    },[])
-    return(
+export default function Post({ post }) {
+    const { userId, title, body } = post
+    return (
         <>
-        <h2>Post : {}</h2>
+            <div className='innerBox'>
+                <h3>User ID : {userId}</h3>
+                <h4>{title}</h4>
+                <p>{body}</p>
+            </div>
         </>
     )
 }
-
-// 1. Creat a state to stor data
-// 2. Creat useEffect with no dipendency
-// 3. Use fatch to load data
-// 4. Use json to convert data
-// 5. 
